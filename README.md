@@ -6,6 +6,6 @@ This Plugin is a modification to ACFB
 2. Show billing if using afterpay
 
 # Installation
-1. Create a folder named 'email-template-customizer-for-woo-mod' in the wp-content/plugins directory.
+1. Create a folder named 'acfb-mods' in the wp-content/plugins directory.
 2. Copy the files to the newly created folder.
 3. Activate the plugin from the WordPress admin panel.
