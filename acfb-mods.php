@@ -81,3 +81,9 @@ EOF;
             }
         }
     }
+
+    function action_woocommerce_shortcode_products_loop_no_results( $attributes ) {
+        echo __( 'No products found.', 'woocommerce' );
+    }
+
+    add_action( 'woocommerce_shortcode_products_loop_no_results', 'action_woocommerce_shortcode_products_loop_no_results', 10, 1 );
