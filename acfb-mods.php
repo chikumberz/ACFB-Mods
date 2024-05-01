@@ -5,7 +5,7 @@
      * Plugin Name: ACFB - Mods
      * Plugin URI: https://github.com/chikumberz/ACFB-mods
      * Description: This are modification hooks for ACFB
-     * Version: 0.1.1
+     * Version: 0.1.2
      * Author: Benjamin Taluyo
      * E-mail: benjie.taluyo@gmail.com
      * License: GPLv2 or later
