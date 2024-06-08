@@ -14,7 +14,6 @@
      */
 
     // this function sets the checkout form data as session transients whenever the checkout page validates
-    /*
     add_action('woocommerce_checkout_update_order_review', 'acfb_woocommerce_checkout_fields_store');
 
     function acfb_woocommerce_checkout_fields_store ($posted_data) {
@@ -33,6 +32,7 @@
         WC()->session->set('store_checkout_fields', $data);
     }
 
+    /*
     add_filter('woocommerce_checkout_fields' , 'acfb_woocommerce_checkout_fields_default', 20);
 
     function acfb_woocommerce_checkout_fields_default( $fields ) {
