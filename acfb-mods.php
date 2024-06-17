@@ -126,9 +126,10 @@
 
                         $('body').on('updated_checkout', function () {
                             let target = $('form[name="checkout"] input[name="payment_method"]:checked');
+                            let target_pay_method = target.val();
 
                             // Check if not match with the previous payment method then reload it
-                            if (default_pay_method != target.val()) {
+                            if (target_pay_method && target_pay_method != default_pay_method ) {
                                 $.blockUI(); location.reload();
                             }
                         });
