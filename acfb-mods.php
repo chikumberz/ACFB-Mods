@@ -5,7 +5,7 @@
      * Plugin Name: ACFB - Mods
      * Plugin URI: https://github.com/chikumberz/ACFB-mods
      * Description: This are modification hooks for ACFB
-     * Version: 0.1.3
+     * Version: 0.1.4
      * Author: Benjamin Taluyo
      * E-mail: benjie.taluyo@gmail.com
      * License: GPLv2 or later
@@ -92,6 +92,25 @@
         return $address_fields;
     }
 
+    // TODO: remove this if the ACFB - Customization is Updated to version 2
+    add_filter('woocommerce_payment_complete', 'acfb_woocommerce_auto_complete_paid_order', 20, 1);
+
+    // TODO: remove this if the ACFB - Customization is Updated to version 2
+    // Auto complete all order types other than the bank or cash items
+    function acfb_woocommerce_auto_complete_paid_order ($order_id) {
+        if (!$order_id) return;
+
+        // Get an instance of the WC_Product object
+        $order = wc_get_order($order_id);
+
+        // Updated status to "completed" for paid orders with all others payment methods except for bank transer, cod, cheque
+        if (!in_array($order->get_payment_method(), array('bacs', 'cod', 'cheque', ''))) {
+            $order->update_status('completed');
+        }
+
+        return;
+    }
+
     add_action('wp_footer', 'acfb_add_jscript_checkout', 9999);
 
     function acfb_add_jscript_checkout () {
@@ -144,4 +163,4 @@ EOF;
         echo __( 'No products found.', 'woocommerce' );
     }
 
-    add_action( 'woocommerce_shortcode_products_loop_no_results', 'action_woocommerce_shortcode_products_loop_no_results', 10, 1 );
+    add_action('woocommerce_shortcode_products_loop_no_results', 'action_woocommerce_shortcode_products_loop_no_results', 10, 1);
